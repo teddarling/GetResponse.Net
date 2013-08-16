@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetResponse.Net.Specs", "GetResponse.Net.Specs\GetResponse.Net.Specs.csproj", "{5597DEE9-97EE-4A8F-9A0F-5AB9D88D1B10}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetResponse.Net", "GetResponse.Net\GetResponse.Net.csproj", "{C9AE144A-5C76-4C6F-9BF7-0E1CB6D7D933}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{F3BD6C7E-E2D3-43BB-90B4-1E1685E4615C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetResponse.Net.Specs", "GetResponse.Net.Specs\GetResponse.Net.Specs.csproj", "{724B51CD-A4F9-45D6-9E6A-803E76A7D279}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{495AE643-A7D7-4778-9F5A-68A96BBD14CD}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\NuGet.Config = .nuget\NuGet.Config
 		.nuget\NuGet.exe = .nuget\NuGet.exe
@@ -16,10 +18,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5597DEE9-97EE-4A8F-9A0F-5AB9D88D1B10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5597DEE9-97EE-4A8F-9A0F-5AB9D88D1B10}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5597DEE9-97EE-4A8F-9A0F-5AB9D88D1B10}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5597DEE9-97EE-4A8F-9A0F-5AB9D88D1B10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9AE144A-5C76-4C6F-9BF7-0E1CB6D7D933}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9AE144A-5C76-4C6F-9BF7-0E1CB6D7D933}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9AE144A-5C76-4C6F-9BF7-0E1CB6D7D933}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9AE144A-5C76-4C6F-9BF7-0E1CB6D7D933}.Release|Any CPU.Build.0 = Release|Any CPU
+		{724B51CD-A4F9-45D6-9E6A-803E76A7D279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{724B51CD-A4F9-45D6-9E6A-803E76A7D279}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{724B51CD-A4F9-45D6-9E6A-803E76A7D279}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{724B51CD-A4F9-45D6-9E6A-803E76A7D279}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
