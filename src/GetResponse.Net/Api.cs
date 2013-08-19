@@ -1,9 +1,6 @@
 ﻿using GetResponse.Net.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
+using System.Net.Http.Headers;
 
 namespace GetResponse.Net
 {
@@ -15,19 +12,20 @@ namespace GetResponse.Net
 
         public Api(string apiKey, string apiUrl, HttpClient httpClient)
         {
-            this._apiKey = apiKey;
-            this._apiUrl = apiUrl;
-            this._client = httpClient;
+            _apiKey = apiKey;
+            _apiUrl = apiUrl;
+            _client = httpClient;
         }
 
-        public PingResponse Ping()
+        public string Ping()
         {
-            return new PingResponse
-            {
-                Id = "1",
-                Jsonrpc = "2.0",
-                Result = "{\"jsonrpc\":\"2.0\",\"id\":\"1\",\"result\":{\"ping\":\"pong\"}}"
-            };
+            var data = "{\"id\":\"1\",\"jsonrpc\":\"2.0\",\"method\":\"ping\",\"params\":[\"" + _apiKey + "\"]}";
+            var content = new StringContent(data);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            var result = _client.PostAsync(_apiUrl, content).Result;
+
+            return result.Content.ReadAsStringAsync().Result;
         }
     }
 }

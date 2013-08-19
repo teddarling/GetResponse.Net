@@ -1,6 +1,5 @@
 ﻿using GetResponse.Net.Model;
 using GetResponse.Net.Specs.Fakes;
-using System;
 using System.Net.Http;
 using TechTalk.SpecFlow;
 using Xunit;
@@ -15,7 +14,7 @@ namespace GetResponse.Net.Specs
         private string _response;
         private HttpClient _httpClient;
         private Api _api;
-        private PingResponse _pingResponse;
+        private string _pingResponse;
 
         [Given(@"I have a valid API key '(.*)'")]
         public void GivenIHaveAValidAPIKey(string apiKey)
@@ -45,7 +44,6 @@ namespace GetResponse.Net.Specs
             responseMessage.Content = new GetResponseContent(apiResponse);
             var messageHandler = new GetResponseMessageHandler(responseMessage);
             _httpClient = new HttpClient(messageHandler);
-            _httpClient.BaseAddress = new Uri(_apiUrl);
         }
 
         [When(@"I send a ping request")]
@@ -56,16 +54,9 @@ namespace GetResponse.Net.Specs
         }
 
         [Then(@"the result should be '(.*)'")]
-        public void ThenTheResultShouldBe(string p0)
+        public void ThenTheResultShouldBe(string apiResponse)
         {
-            PingResponse response = new PingResponse();
-            response.Id = "1";
-            response.Jsonrpc = "2.0";
-            response.Result = _response;
-
-            Assert.Equal(response.Id, _pingResponse.Id);
-            Assert.Equal(response.Jsonrpc, _pingResponse.Jsonrpc);
-            Assert.Equal(response.Result, _pingResponse.Result);
+            Assert.Equal(apiResponse, _pingResponse);
         }
     }
 }

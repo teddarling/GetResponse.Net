@@ -91,7 +91,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 11
  testRunner.When("I send a ping request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 12
- testRunner.Then("the result should be \'pong\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the result should be \'{\"jsonrpc\":\"2.0\",\"id\":\"1\",\"result\":{\"ping\":\"pong\"}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -114,7 +114,8 @@ this.ScenarioSetup(scenarioInfo);
 #line 18
  testRunner.When("I send a ping request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 19
- testRunner.Then("the result should be \'pong\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the result should be \'{\"jsonrpc\":\"2.0\",\"error\":{\"message\":\"Invalid params\",\"code\"" +
+                    ":-32602},\"id\":\"1\"}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
