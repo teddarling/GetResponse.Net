@@ -78,7 +78,7 @@ namespace GetResponse.Net.Specs
         public virtual void GetPingResults()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get Ping Results", new string[] {
-                        "mytag"});
+                        "ping"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
@@ -91,6 +91,29 @@ this.ScenarioSetup(scenarioInfo);
 #line 11
  testRunner.When("I send a ping request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 12
+ testRunner.Then("the result should be \'pong\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute()]
+        [Xunit.TraitAttribute("FeatureTitle", "Ping")]
+        [Xunit.TraitAttribute("Description", "Invalid URL")]
+        public virtual void InvalidURL()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Invalid URL", ((string[])(null)));
+#line 14
+this.ScenarioSetup(scenarioInfo);
+#line 15
+ testRunner.Given("I have an invalid API key \'invalid key\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 16
+ testRunner.And("valid Api URL \'http://api2.getresponse.com\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 17
+ testRunner.And("a valid HttpClient with the following response \'{\"jsonrpc\":\"2.0\",\"error\":{\"messag" +
+                    "e\":\"Invalid params\",\"code\":-32602},\"id\":\"1\"}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 18
+ testRunner.When("I send a ping request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 19
  testRunner.Then("the result should be \'pong\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

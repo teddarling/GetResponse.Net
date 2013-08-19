@@ -23,6 +23,12 @@ namespace GetResponse.Net.Specs
             _apiKey = apiKey;
         }
 
+        [Given(@"I have an invalid API key '(.*)'")]
+        public void GivenIHaveAnInvalidAPIKey(string apiKey)
+        {
+            _apiKey = apiKey;
+        }
+
         [Given(@"valid Api URL '(.*)'")]
         public void GivenValidApiURL(string url)
         {
