@@ -35,6 +35,13 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.13\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.13\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -70,6 +77,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GetResponse.Net.Model\GetResponse.Net.Model.csproj">
+      <Project>{0cac8fcb-e0f3-474a-bfac-f10d2e94e2cd}</Project>
+      <Name>GetResponse.Net.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GetResponse.Net\GetResponse.Net.csproj">
       <Project>{c9ae144a-5c76-4c6f-9bf7-0e1cb6d7d933}</Project>
       <Name>GetResponse.Net</Name>
@@ -77,6 +88,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.8\tools\Microsoft.Bcl.Build.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

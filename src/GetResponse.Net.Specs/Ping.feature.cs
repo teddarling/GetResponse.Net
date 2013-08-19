@@ -74,18 +74,23 @@ namespace GetResponse.Net.Specs
         
         [Xunit.FactAttribute()]
         [Xunit.TraitAttribute("FeatureTitle", "Ping")]
-        [Xunit.TraitAttribute("Description", "Add two numbers")]
-        public virtual void AddTwoNumbers()
+        [Xunit.TraitAttribute("Description", "Get Ping Results")]
+        public virtual void GetPingResults()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get Ping Results", new string[] {
                         "mytag"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
  testRunner.Given("I have a valid API key \'valid key\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 9
- testRunner.When("I send a \'ping\' request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("valid Api URL \'http://api2.getresponse.com\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
+ testRunner.And("a valid HttpClient with the following response \'{\"jsonrpc\":\"2.0\",\"id\":\"1\",\"result" +
+                    "\":{\"ping\":\"pong\"}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 11
+ testRunner.When("I send a ping request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 12
  testRunner.Then("the result should be \'pong\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

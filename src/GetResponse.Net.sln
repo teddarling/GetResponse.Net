@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{495AE6
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetResponse.Net.Model", "GetResponse.Net.Model\GetResponse.Net.Model.csproj", "{0CAC8FCB-E0F3-474A-BFAC-F10D2E94E2CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{724B51CD-A4F9-45D6-9E6A-803E76A7D279}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{724B51CD-A4F9-45D6-9E6A-803E76A7D279}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{724B51CD-A4F9-45D6-9E6A-803E76A7D279}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CAC8FCB-E0F3-474A-BFAC-F10D2E94E2CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CAC8FCB-E0F3-474A-BFAC-F10D2E94E2CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CAC8FCB-E0F3-474A-BFAC-F10D2E94E2CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CAC8FCB-E0F3-474A-BFAC-F10D2E94E2CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
