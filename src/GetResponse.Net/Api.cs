@@ -1,31 +1,65 @@
-﻿using GetResponse.Net.Model;
+﻿using GetResponse.Net.Models;
+using ServiceStack.Text;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace GetResponse.Net
 {
     public class Api
     {
-        private string _apiKey;
-        private string _apiUrl;
+        private string _key;
+        private string _url;
         private HttpClient _client;
+
+        public Api(string apiKey, string apiUrl) :
+            this(apiKey, apiUrl, new HttpClient())
+        {
+        }
 
         public Api(string apiKey, string apiUrl, HttpClient httpClient)
         {
-            _apiKey = apiKey;
-            _apiUrl = apiUrl;
+            // Throw error if no key or URL
+            if (String.IsNullOrEmpty(apiKey))
+                throw new ArgumentNullException("apiKey");
+
+            if (String.IsNullOrEmpty(apiUrl))
+                throw new ArgumentNullException("apiUrl");
+
+            _key = apiKey;
+            _url = apiUrl;
             _client = httpClient;
+
+            // Config ServiceStack Json.
+            JsConfig.EmitCamelCaseNames = true;
+            JsConfig.ExcludeTypeInfo = true;
+            JsConfig.IncludeNullValues = false;
         }
 
-        public string Ping()
+        public PingResponse Ping()
         {
-            var data = "{\"id\":\"1\",\"jsonrpc\":\"2.0\",\"method\":\"ping\",\"params\":[\"" + _apiKey + "\"]}";
+            var data = "{\"id\":\"1\",\"jsonrpc\":\"2.0\",\"method\":\"ping\",\"params\":[\"" + _key + "\"]}";
             var content = new StringContent(data);
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            var result = _client.PostAsync(_apiUrl, content).Result;
+            var response = _client.PostAsync(_url, content).Result;
+            
+            var result = response.Content.ReadAsStringAsync().Result;
 
-            return result.Content.ReadAsStringAsync().Result;
+            var pingResponse = result.FromJson<PingResponse>();
+
+            // If pingResponse is null (bad URL, Http error, etc...)
+            // Then set to new.
+            if (pingResponse == null)
+                pingResponse = new PingResponse();
+
+            pingResponse.StatusCode = response.StatusCode;
+
+            return pingResponse;
         }
     }
 }

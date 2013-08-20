@@ -35,12 +35,6 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Net.Http.Extensions">
-      <HintPath>..\packages\Microsoft.Net.Http.2.2.13\lib\net45\System.Net.Http.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http.Primitives">
-      <HintPath>..\packages\Microsoft.Net.Http.2.2.13\lib\net45\System.Net.Http.Primitives.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -58,8 +52,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiSetup.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApiSetup.feature</DependentUpon>
+    </Compile>
+    <Compile Include="ApiSetupSteps.cs" />
     <Compile Include="Fakes\GetResponseContent.cs" />
     <Compile Include="Fakes\GetResponseMessageHandler.cs" />
+    <Compile Include="InvalidData.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvalidData.feature</DependentUpon>
+    </Compile>
+    <Compile Include="InvalidDataSteps.cs" />
     <Compile Include="Ping.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -69,7 +75,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ApiSetup.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ApiSetup.feature.cs</LastGenOutput>
+    </None>
     <None Include="App.config" />
+    <None Include="InvalidData.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>InvalidData.feature.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
     <None Include="Ping.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
@@ -77,18 +91,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GetResponse.Net.Model\GetResponse.Net.Model.csproj">
-      <Project>{0cac8fcb-e0f3-474a-bfac-f10d2e94e2cd}</Project>
-      <Name>GetResponse.Net.Model</Name>
+    <ProjectReference Include="..\GetResponse.Net.Models\GetResponse.Net.Models.csproj">
+      <Project>{d4e41e05-2457-42f3-97b3-147c23a61036}</Project>
+      <Name>GetResponse.Net.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\GetResponse.Net\GetResponse.Net.csproj">
-      <Project>{c9ae144a-5c76-4c6f-9bf7-0e1cb6d7d933}</Project>
+      <Project>{36c29579-b94a-48b9-86cd-3e54003066ce}</Project>
       <Name>GetResponse.Net</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
-  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.8\tools\Microsoft.Bcl.Build.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

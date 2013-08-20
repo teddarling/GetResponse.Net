@@ -1,5 +1,6 @@
-﻿using GetResponse.Net.Model;
+﻿using GetResponse.Net.Models;
 using GetResponse.Net.Specs.Fakes;
+using System;
 using System.Net.Http;
 using TechTalk.SpecFlow;
 using Xunit;
@@ -14,49 +15,41 @@ namespace GetResponse.Net.Specs
         private string _response;
         private HttpClient _httpClient;
         private Api _api;
-        private string _pingResponse;
+        private PingResponse _pingResponse;
 
-        [Given(@"I have a valid API key '(.*)'")]
-        public void GivenIHaveAValidAPIKey(string apiKey)
+        [Given(@"the following API response '(.*)'")]
+        public void GivenTheFollowingAPIResponse(string response)
         {
-            _apiKey = apiKey;
-        }
-
-        [Given(@"I have an invalid API key '(.*)'")]
-        public void GivenIHaveAnInvalidAPIKey(string apiKey)
-        {
-            _apiKey = apiKey;
-        }
-
-        [Given(@"valid Api URL '(.*)'")]
-        public void GivenValidApiURL(string url)
-        {
-            _apiUrl = url;
-        }
-
-        [Given(@"a valid HttpClient with the following response '(.*)'")]
-        public void GivenAValidHttpClientWithTheFollowingResponse(string apiResponse)
-        {
-            _response = apiResponse;
-
-            // Setup the HttpClient with fake data.
-            var responseMessage = new HttpResponseMessage();
-            responseMessage.Content = new GetResponseContent(apiResponse);
-            var messageHandler = new GetResponseMessageHandler(responseMessage);
-            _httpClient = new HttpClient(messageHandler);
+            _response = response;
         }
 
         [When(@"I send a ping request")]
         public void WhenISendAPingRequest()
         {
-            _api = new Api(_apiKey, _apiUrl, _httpClient);
+            var responseMessage = new HttpResponseMessage();
+
+            var response = (!String.IsNullOrEmpty(_response))
+                ? _response : "";
+
+            responseMessage.Content = new GetResponseContent(response);
+
+            var messageHandler =
+                new GetResponseMessageHandler(responseMessage);
+
+            var client = new HttpClient(messageHandler);
+
+            var key = "valid Key";
+            var url = "http://api2.getresponse.com";
+
+            _api = new Api(key, url, client);
             _pingResponse = _api.Ping();
         }
 
         [Then(@"the result should be '(.*)'")]
         public void ThenTheResultShouldBe(string apiResponse)
         {
-            Assert.Equal(apiResponse, _pingResponse);
+            Assert.Equal(apiResponse, _pingResponse.Result.Ping);
         }
+
     }
 }
