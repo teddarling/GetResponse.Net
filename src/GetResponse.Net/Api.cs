@@ -35,7 +35,7 @@ namespace GetResponse.Net
             _client = httpClient;
 
             // Config ServiceStack Json.
-            JsConfig.EmitCamelCaseNames = true;
+            JsConfig.EmitLowercaseUnderscoreNames = true;
             JsConfig.ExcludeTypeInfo = true;
             JsConfig.IncludeNullValues = false;
         }
