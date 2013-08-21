@@ -52,12 +52,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountInfo.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccountInfo.feature</DependentUpon>
+    </Compile>
     <Compile Include="ApiSetup.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ApiSetup.feature</DependentUpon>
     </Compile>
-    <Compile Include="ApiSetupSteps.cs" />
+    <Compile Include="Steps\ApiSetupSteps.cs" />
     <Compile Include="Fakes\GetResponseContent.cs" />
     <Compile Include="Fakes\GetResponseMessageHandler.cs" />
     <Compile Include="InvalidData.feature.cs">
@@ -65,16 +70,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>InvalidData.feature</DependentUpon>
     </Compile>
-    <Compile Include="InvalidDataSteps.cs" />
+    <Compile Include="Steps\InvalidDataSteps.cs" />
     <Compile Include="Ping.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Ping.feature</DependentUpon>
     </Compile>
-    <Compile Include="PingSteps.cs" />
+    <Compile Include="Steps\PingSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Steps\AccountInfoSteps.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="AccountInfo.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AccountInfo.feature.cs</LastGenOutput>
+    </None>
     <None Include="ApiSetup.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ApiSetup.feature.cs</LastGenOutput>

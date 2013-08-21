@@ -2,7 +2,7 @@
 using TechTalk.SpecFlow;
 using Xunit;
 
-namespace GetResponse.Net.Specs
+namespace GetResponse.Net.Specs.Steps
 {
     [Binding]
     public class ApiSetupSteps

@@ -6,7 +6,7 @@ using Xunit;
 using GetResponse.Net.Models;
 using System.Net;
 
-namespace GetResponse.Net.Specs
+namespace GetResponse.Net.Specs.Steps
 {
     [Binding]
     public class InvalidDataSteps
