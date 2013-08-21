@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountInfoResponse.cs" />
+    <Compile Include="AccountInfoResult.cs" />
     <Compile Include="BaseResponse.cs" />
     <Compile Include="Error.cs" />
     <Compile Include="PingResponse.cs" />

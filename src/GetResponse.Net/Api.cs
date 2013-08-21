@@ -36,8 +36,10 @@ namespace GetResponse.Net
 
             // Config ServiceStack Json.
             JsConfig.EmitLowercaseUnderscoreNames = true;
+            JsConfig.EmitCamelCaseNames = false;
             JsConfig.ExcludeTypeInfo = true;
             JsConfig.IncludeNullValues = false;
+            JsConfig.PropertyConvention = JsonPropertyConvention.Lenient;
         }
 
         public PingResponse Ping()
@@ -60,6 +62,28 @@ namespace GetResponse.Net
             pingResponse.StatusCode = response.StatusCode;
 
             return pingResponse;
+        }
+
+        public AccountInfoResponse AccountInfo()
+        {
+            var data = "{\"id\":\"1\",\"jsonrpc\":\"2.0\",\"method\":\"get_account_info\",\"params\":[\"" + _key + "\"]}";
+            var content = new StringContent(data);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            var response = _client.PostAsync(_url, content).Result;
+
+            var result = response.Content.ReadAsStringAsync().Result;
+
+            var infoResponse = result.FromJson<AccountInfoResponse>();
+
+            // If pingResponse is null (bad URL, Http error, etc...)
+            // Then set to new.
+            if (infoResponse == null)
+                infoResponse = new AccountInfoResponse();
+
+            infoResponse.StatusCode = response.StatusCode;
+
+            return infoResponse;
         }
     }
 }
