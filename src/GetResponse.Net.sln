@@ -16,6 +16,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetResponse.Net", "GetRespo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetResponse.Net.Models", "GetResponse.Net.Models\GetResponse.Net.Models.csproj", "{D4E41E05-2457-42F3-97B3-147C23A61036}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetResponse.Net.Model", "GetResponse.Net.Model\GetResponse.Net.Model.csproj", "{931B33B3-A450-4C5A-BDBD-41C932817467}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetResponse.Net.Service", "GetResponse.Net.Service\GetResponse.Net.Service.csproj", "{7184BD07-872E-4420-B106-1C7807F454BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +42,14 @@ Global
 		{D4E41E05-2457-42F3-97B3-147C23A61036}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4E41E05-2457-42F3-97B3-147C23A61036}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4E41E05-2457-42F3-97B3-147C23A61036}.Release|Any CPU.Build.0 = Release|Any CPU
+		{931B33B3-A450-4C5A-BDBD-41C932817467}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{931B33B3-A450-4C5A-BDBD-41C932817467}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{931B33B3-A450-4C5A-BDBD-41C932817467}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{931B33B3-A450-4C5A-BDBD-41C932817467}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7184BD07-872E-4420-B106-1C7807F454BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7184BD07-872E-4420-B106-1C7807F454BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7184BD07-872E-4420-B106-1C7807F454BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7184BD07-872E-4420-B106-1C7807F454BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

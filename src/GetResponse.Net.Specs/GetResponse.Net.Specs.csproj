@@ -35,6 +35,12 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.13\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.13\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -62,6 +68,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ApiSetup.feature</DependentUpon>
     </Compile>
+    <Compile Include="ServiceClient.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ServiceClient.feature</DependentUpon>
+    </Compile>
     <Compile Include="Steps\ApiSetupSteps.cs" />
     <Compile Include="Fakes\GetResponseContent.cs" />
     <Compile Include="Fakes\GetResponseMessageHandler.cs" />
@@ -79,6 +90,7 @@
     <Compile Include="Steps\PingSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Steps\AccountInfoSteps.cs" />
+    <Compile Include="Steps\ServiceClientSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="AccountInfo.feature">
@@ -99,11 +111,19 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Ping.feature.cs</LastGenOutput>
     </None>
+    <None Include="ServiceClient.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ServiceClient.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GetResponse.Net.Models\GetResponse.Net.Models.csproj">
       <Project>{d4e41e05-2457-42f3-97b3-147c23a61036}</Project>
       <Name>GetResponse.Net.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GetResponse.Net.Service\GetResponse.Net.Service.csproj">
+      <Project>{7184bd07-872e-4420-b106-1c7807f454be}</Project>
+      <Name>GetResponse.Net.Service</Name>
     </ProjectReference>
     <ProjectReference Include="..\GetResponse.Net\GetResponse.Net.csproj">
       <Project>{36c29579-b94a-48b9-86cd-3e54003066ce}</Project>
@@ -112,6 +132,11 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
