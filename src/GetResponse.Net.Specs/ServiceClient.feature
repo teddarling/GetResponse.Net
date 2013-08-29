@@ -23,4 +23,12 @@ Scenario: Valid Request
 	And a request value of '{"id":"1","jsonrpc":"2.0","method":"ping","params":["valid api key"]}'
 	And an API return value of '{"jsonrpc":"2.0","id":"1","result":{"ping":"pong"}}'
 	When I send a request
-	Then the service result should be '{"jsonrpc":"2.0","id":"1","result":{"ping":"pong"}}'
+	Then the service result should be '{"jsonrpc":"2.0","id":"1","result":{"ping":"pong"}}'	
+	
+Scenario: Failure Status Code
+	Given an api URL 'http://api2.getresponse.com'
+	And an API status code, 500
+	And a request value of '{"id":"1","jsonrpc":"2.0","method":"ping","params":["valid api key"]}'
+	And an API return value of '{"jsonrpc":"2.0","id":"1","result":{"ping":"pong"}}'
+	When I send a request
+	Then the client should throw an error

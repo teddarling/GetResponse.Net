@@ -1,6 +1,7 @@
 ﻿using GetResponse.Net.Service;
 using GetResponse.Net.Specs.Fakes;
 using System;
+using System.Net;
 using System.Net.Http;
 using TechTalk.SpecFlow;
 using Xunit;
@@ -14,6 +15,7 @@ namespace GetResponse.Net.Specs.Steps
         private string _request;
         private string _result;
         private GetResponseMessageHandler _handler;
+        private int? _statusCode;
 
         [Given(@"an api URL '(.*)'")]
         public void GivenAnApiURL(string url)
@@ -30,19 +32,37 @@ namespace GetResponse.Net.Specs.Steps
         [Given(@"an API return value of '(.*)'")]
         public void GivenAnAPIReturnValueOf(string result)
         {
-            var responseMessage = new HttpResponseMessage();
+            HttpResponseMessage responseMessage;
+
+            if (_statusCode != null)
+                responseMessage = new HttpResponseMessage((HttpStatusCode)_statusCode);
+            else
+                responseMessage = new HttpResponseMessage();
+
             responseMessage.Content = new GetResponseContent(result);
 
             _handler =
                 new GetResponseMessageHandler(responseMessage);
         }
+
+        [Given(@"an API status code, (.*)")]
+        public void GivenAnAPIStatusCode(int statusCode)
+        {
+            _statusCode = statusCode;
+        }
         
         [When(@"I send a request")]
         public void WhenISendARequest()
         {
-            var client = new Client(_url, _handler);
-            _result = client.GetResult(_request);
-
+            try
+            {
+                var client = new Client(_url, _handler);
+                _result = client.GetResult(_request);
+            }
+            catch (Exception ex)
+            {
+                ScenarioContext.Current.Add("Exception", ex);
+            }
             
         }
 
@@ -51,10 +71,18 @@ namespace GetResponse.Net.Specs.Steps
         {
             Assert.NotEqual(resultJson, _result);
         }
+
         [Then(@"the service result should be '(.*)'")]
         public void ThenTheServiceResultShouldBe(string result)
         {
             Assert.Equal(result, _result);
+        }
+
+        [Then(@"the client should throw an error")]
+        public void ThenTheClientShouldThrowAnError()
+        {
+            var ex = ScenarioContext.Current["Exception"];
+            Assert.Equal(typeof(AggregateException), ex.GetType());
         }
     }
 }
