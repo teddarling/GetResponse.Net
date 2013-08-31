@@ -58,6 +58,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountService.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccountService.feature</DependentUpon>
+    </Compile>
     <Compile Include="ConnectionTestingService.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -70,11 +75,16 @@
     </Compile>
     <Compile Include="Fakes\GetResponseContent.cs" />
     <Compile Include="Fakes\GetResponseMessageHandler.cs" />
+    <Compile Include="Steps\AccountServiceSteps.cs" />
     <Compile Include="Steps\ConnectionTestingServiceSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Steps\ServiceClientSteps.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="AccountService.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AccountService.feature.cs</LastGenOutput>
+    </None>
     <None Include="App.config" />
     <None Include="ConnectionTestingService.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

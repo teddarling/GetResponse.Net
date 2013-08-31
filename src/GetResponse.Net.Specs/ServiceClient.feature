@@ -18,6 +18,13 @@ Scenario: Invalid Request
 	When I send a request
 	Then the service result should be '{"jsonrpc":"2.0","error":{"message":"Parse error","code":-32700},"id":null}'
 
+Scenario: Invalid Params
+	Given an api URL 'http://api2.getresponse.com'
+	And a request value of '{"id":"1","jsonrpc":"2.0","method":"get_account_domain","params":["valid api key",{"account_domain":"ACCOUNT_DOMAIN_ID"}]}'
+	And an API return value of '{"jsonrpc":"2.0","error":{"message":"Invalid params","code":-32602},"id":"1"}'
+	When I send a request
+	Then the service result should be '{"jsonrpc":"2.0","error":{"message":"Invalid params","code":-32602},"id":"1"}'
+
 Scenario: Valid Request
 	Given an api URL 'http://api2.getresponse.com'
 	And a request value of '{"id":"1","jsonrpc":"2.0","method":"ping","params":["valid api key"]}'
