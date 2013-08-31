@@ -11,8 +11,6 @@ namespace GetResponse.Net.Specs.Steps
     [Binding]
     public class ConnectionTestingServiceSteps
     {
-        private string _url = "http://api2.getresponse.com";
-
         private string _key;
         private string _result;
         private HttpResponseMessage _responseMessage;
@@ -50,7 +48,6 @@ namespace GetResponse.Net.Specs.Steps
 
             var client = new Client
             {
-                Url = _url,
                 HttpClient = new HttpClient(handler)
             };
 

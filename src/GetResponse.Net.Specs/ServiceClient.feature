@@ -31,4 +31,11 @@ Scenario: Failure Status Code
 	And a request value of '{"id":"1","jsonrpc":"2.0","method":"ping","params":["valid api key"]}'
 	And an API return value of '{"jsonrpc":"2.0","id":"1","result":{"ping":"pong"}}'
 	When I send a request
-	Then the client should throw an error
+	Then the client should throw an 'System.AggregateException'
+	
+Scenario: No HttpClient provided
+	Given an api URL 'http://api2.getresponse.com'
+	And a request value of '{"id":"1","jsonrpc":"2.0","method":"ping","params":["valid api key"]}'
+	When I send a request with no HttpClient
+	Then the client should throw an 'System.AggregateException'
+	Then the client should throw an inner exception of 'System.NullReferenceException'

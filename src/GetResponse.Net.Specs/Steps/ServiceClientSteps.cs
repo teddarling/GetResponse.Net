@@ -69,8 +69,27 @@ namespace GetResponse.Net.Specs.Steps
             catch (Exception ex)
             {
                 ScenarioContext.Current.Add("Exception", ex);
+            }            
+        }
+
+        [When(@"I send a request with no HttpClient")]
+        public void WhenISendARequestWithNoHttpClient()
+        {
+            try
+            {
+                //var client = new Client(_url, _handler);
+
+                var client = new Client
+                {
+                    Url = _url
+                };
+
+                _result = client.GetResult(_request);
             }
-            
+            catch (Exception ex)
+            {
+                ScenarioContext.Current.Add("Exception", ex);
+            }
         }
 
         [Then(@"the result should not be '(.*)'")]
@@ -86,10 +105,27 @@ namespace GetResponse.Net.Specs.Steps
         }
 
         [Then(@"the client should throw an error")]
-        public void ThenTheClientShouldThrowAnError()
+        public void ThenTheClientShouldThrowAnAggregateException()
         {
             var ex = ScenarioContext.Current["Exception"];
             Assert.Equal(typeof(AggregateException), ex.GetType());
+        }
+
+        [Then(@"the client should throw an '(.*)'")]
+        public void ThenTheClientShouldThrowAn(string exceptionType)
+        {
+            var ex = ScenarioContext.Current["Exception"];
+            var actual = ex.GetType().ToString();
+            Assert.Equal(exceptionType, actual);
+        }
+
+        [Then(@"the client should throw an inner exception of '(.*)'")]
+        public void ThenTheClientShouldThrowAnInnerExceptionOf(string exceptionType)
+        {
+            var ex = ScenarioContext.Current["Exception"];
+            var actualException = (Exception)ex;
+            var actual = actualException.InnerException.GetType().ToString();
+            Assert.Equal(exceptionType, actual);
         }
     }
 }
