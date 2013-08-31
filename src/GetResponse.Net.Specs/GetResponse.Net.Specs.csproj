@@ -87,10 +87,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GetResponse.Net.Models\GetResponse.Net.Models.csproj">
-      <Project>{d4e41e05-2457-42f3-97b3-147c23a61036}</Project>
-      <Name>GetResponse.Net.Models</Name>
-    </ProjectReference>
     <ProjectReference Include="..\GetResponse.Net.Service\GetResponse.Net.Service.csproj">
       <Project>{7184bd07-872e-4420-b106-1c7807f454be}</Project>
       <Name>GetResponse.Net.Service</Name>
