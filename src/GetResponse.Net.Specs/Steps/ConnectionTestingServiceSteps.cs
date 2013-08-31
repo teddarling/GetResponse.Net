@@ -48,7 +48,11 @@ namespace GetResponse.Net.Specs.Steps
             var handler =
                 new GetResponseMessageHandler(_responseMessage);
 
-            var client = new Client(_url, handler);
+            var client = new Client
+            {
+                Url = _url,
+                HttpClient = new HttpClient(handler)
+            };
 
             _service = new ConnectionTestingService(_key, client);
         }

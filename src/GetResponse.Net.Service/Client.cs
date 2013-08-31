@@ -10,40 +10,18 @@ namespace GetResponse.Net.Service
 {
     public class Client
     {
-        private string _url;
-        private HttpClient _client;
-
         /// <summary>
-        /// Create a client to access the GetResponse
-        /// API using the default URL.
+        /// Set the default URL. The user
+        /// can change this if they are using
+        /// GetResponse 360 with a custom URL.
         /// </summary>
         public Client()
-            : this("http://api2.getresponse.com/")
-        { }
-
-        /// <summary>
-        /// Create a client to access the GetResponse
-        /// API using a custom URL (for GetResponse 360).
-        /// </summary>
-        /// <param name="url">String - URL to the API.</param>
-        public Client(string url)
-            : this(url, new HttpClientHandler())
-        { }
-
-        /// <summary>        /// 
-        /// Create a client to access the GetResponse
-        /// API using a custom URL (for GetResponse 360)
-        /// and/or message handler.
-        /// </summary>
-        /// <param name="url">String - URL to the API</param>
-        /// <param name="handler">HttpMessageHandler - 
-        /// handler for processing the API results</param>
-        public Client(string url, HttpMessageHandler handler)
         {
-            _url = url;
-
-            _client = new HttpClient(handler);
+            Url = "http://api2.getresponse.com";
         }
+
+        public string Url { get; set; }
+        public HttpClient HttpClient { get; set; }
 
         /// <summary>
         /// Get a result from the GetResponse API
@@ -78,8 +56,8 @@ namespace GetResponse.Net.Service
             content.Headers.ContentType = 
                 new MediaTypeHeaderValue("application/json");
 
-            HttpResponseMessage response = 
-                _client.PostAsync(_url, content).Result;
+            HttpResponseMessage response =
+                HttpClient.PostAsync(Url, content).Result;
             response.EnsureSuccessStatusCode();
             
 

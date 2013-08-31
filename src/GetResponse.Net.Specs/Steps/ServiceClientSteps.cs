@@ -56,7 +56,14 @@ namespace GetResponse.Net.Specs.Steps
         {
             try
             {
-                var client = new Client(_url, _handler);
+                //var client = new Client(_url, _handler);
+
+                var client = new Client
+                {
+                    Url = _url,
+                    HttpClient = new HttpClient(_handler)
+                };
+
                 _result = client.GetResult(_request);
             }
             catch (Exception ex)
