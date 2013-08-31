@@ -63,17 +63,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AccountInfo.feature</DependentUpon>
     </Compile>
-    <Compile Include="ApiSetup.feature.cs">
+    <Compile Include="ConnectionTestingService.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ApiSetup.feature</DependentUpon>
+      <DependentUpon>ConnectionTestingService.feature</DependentUpon>
     </Compile>
     <Compile Include="ServiceClient.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ServiceClient.feature</DependentUpon>
     </Compile>
-    <Compile Include="Steps\ApiSetupSteps.cs" />
     <Compile Include="Fakes\GetResponseContent.cs" />
     <Compile Include="Fakes\GetResponseMessageHandler.cs" />
     <Compile Include="InvalidData.feature.cs">
@@ -81,6 +80,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>InvalidData.feature</DependentUpon>
     </Compile>
+    <Compile Include="Steps\ConnectionTestingServiceSteps.cs" />
     <Compile Include="Steps\InvalidDataSteps.cs" />
     <Compile Include="Ping.feature.cs">
       <AutoGen>True</AutoGen>
@@ -97,11 +97,11 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>AccountInfo.feature.cs</LastGenOutput>
     </None>
-    <None Include="ApiSetup.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>ApiSetup.feature.cs</LastGenOutput>
-    </None>
     <None Include="App.config" />
+    <None Include="ConnectionTestingService.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ConnectionTestingService.feature.cs</LastGenOutput>
+    </None>
     <None Include="InvalidData.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>InvalidData.feature.cs</LastGenOutput>
