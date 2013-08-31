@@ -58,11 +58,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountInfo.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AccountInfo.feature</DependentUpon>
-    </Compile>
     <Compile Include="ConnectionTestingService.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -75,30 +70,15 @@
     </Compile>
     <Compile Include="Fakes\GetResponseContent.cs" />
     <Compile Include="Fakes\GetResponseMessageHandler.cs" />
-    <Compile Include="InvalidData.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>InvalidData.feature</DependentUpon>
-    </Compile>
     <Compile Include="Steps\ConnectionTestingServiceSteps.cs" />
-    <Compile Include="Steps\InvalidDataSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Steps\AccountInfoSteps.cs" />
     <Compile Include="Steps\ServiceClientSteps.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="AccountInfo.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>AccountInfo.feature.cs</LastGenOutput>
-    </None>
     <None Include="App.config" />
     <None Include="ConnectionTestingService.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ConnectionTestingService.feature.cs</LastGenOutput>
-    </None>
-    <None Include="InvalidData.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>InvalidData.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="ServiceClient.feature">
@@ -114,10 +94,6 @@
     <ProjectReference Include="..\GetResponse.Net.Service\GetResponse.Net.Service.csproj">
       <Project>{7184bd07-872e-4420-b106-1c7807f454be}</Project>
       <Name>GetResponse.Net.Service</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\GetResponse.Net\GetResponse.Net.csproj">
-      <Project>{36c29579-b94a-48b9-86cd-3e54003066ce}</Project>
-      <Name>GetResponse.Net</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

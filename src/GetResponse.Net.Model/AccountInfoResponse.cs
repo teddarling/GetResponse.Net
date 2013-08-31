@@ -5,7 +5,8 @@ using System.Text;
 
 namespace GetResponse.Net.Model
 {
-    public class Class1
+    public class AccountInfoResponse : BaseResponse
     {
+        public AccountInfoResult Result { get; set; }
     }
 }

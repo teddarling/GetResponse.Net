@@ -5,7 +5,7 @@
     <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{931b33b3-a450-4c5a-bdbd-41c932817467}</ProjectGuid>
+    <ProjectGuid>{931B33B3-A450-4C5A-BDBD-41C932817467}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GetResponse.Net.Model</RootNamespace>
@@ -36,7 +36,12 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="AccountInfoResponse.cs" />
+    <Compile Include="AccountInfoResult.cs" />
+    <Compile Include="BaseResponse.cs" />
+    <Compile Include="Error.cs" />
+    <Compile Include="PingResponse.cs" />
+    <Compile Include="PingResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
@@ -47,5 +52,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-
 </Project>
