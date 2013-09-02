@@ -1,35 +1,54 @@
-﻿using System;
+﻿using GetResponse.Net.Specs.Fakes;
+using System;
+using System.Net.Http;
 using TechTalk.SpecFlow;
+using GetResponse.Net.Service;
+using Xunit;
 
 namespace GetResponse.Net.Specs.Steps
 {
     [Binding]
     public class AccountServiceSteps
     {
+        private string _key = "valid API key";
+        private string _response;
+        private string _result;
+        private HttpResponseMessage _responseMessage;
+        private AccountService _service;
+
+        [BeforeScenario]
+        public void Setup()
+        {
+            _responseMessage = new HttpResponseMessage();
+        }
+
         [Given(@"a account service return value '(.*)'")]
         public void GivenAAccountServiceReturnValue(string result)
         {
-            ScenarioContext.Current.Pending();
+            _response = result;
+            _responseMessage.Content = new GetResponseContent(result);
         }
         
         [Given(@"an account service")]
         public void GivenAnAccountService()
         {
-            ScenarioContext.Current.Pending();
+            var handler =
+                new GetResponseMessageHandler(_responseMessage);
+
+            var client = new Client
+            {
+                HttpClient = new HttpClient(handler)
+            };
+
+            _service = new AccountService(_key, client);
         }
-        
-        [Given(@"a from name of '(.*)'")]
-        public void GivenAFromNameOf(string name)
+
+        [Given(@"the following From data")]
+        public void GivenTheFollowingFromData(Table table)
         {
             ScenarioContext.Current.Pending();
         }
-        
-        [Given(@"a from email of '(.*)'")]
-        public void GivenAFromEmailOf(string email)
-        {
-            ScenarioContext.Current.Pending();
-        }
-        
+
         [Given(@"a domain id of '(.*)'")]
         public void GivenADomainIdOf(string domainId)
         {
@@ -57,19 +76,19 @@ namespace GetResponse.Net.Specs.Steps
         [When(@"I call GetInfo")]
         public void WhenICallGetInfo()
         {
-            ScenarioContext.Current.Pending();
+            _result = _service.GetInfo();
         }
         
         [When(@"I call GetFromFields")]
         public void WhenICallGetFromFields()
         {
-            ScenarioContext.Current.Pending();
+            _result = _service.GetFromFields();
         }
         
         [When(@"I call GetFromField with a value of '(.*)'")]
         public void WhenICallGetFromFieldWithAValueOf(string fromId)
         {
-            ScenarioContext.Current.Pending();
+            _result = _service.GetFromField(fromId);
         }
         
         [When(@"I call AddFromField")]
@@ -117,7 +136,7 @@ namespace GetResponse.Net.Specs.Steps
         [Then(@"the account service result should be the account service return value")]
         public void ThenTheAccountServiceResultShouldBeTheAccountServiceReturnValue()
         {
-            ScenarioContext.Current.Pending();
+            Assert.Equal(_response, _result);
         }
     }
 }

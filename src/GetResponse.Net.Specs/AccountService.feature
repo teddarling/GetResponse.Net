@@ -25,16 +25,18 @@ Scenario: Get account from field
 Scenario: Add account from field
 	Given a account service return value '{"jsonrpc":"2.0","id":"1","result":{"FROM_FIELD_ID":"abc123","added":1}}'
 	And an account service
-	And a from name of 'Add Name'
-	And a from email of 'addname@example.com'
+	And the following From data	
+		| Name     | Email               |
+		| Add Name | addname@example.com |
 	When I call AddFromField
 	Then the account service result should be the account service return value
 	
 Scenario: Add account from field with invalid email
 	Given a account service return value '{"jsonrpc":"2.0","error":{"message":"Invalid email syntax","code":-1},"id":"1"}'
 	And an account service
-	And a from name of 'Add Name'
-	And a from email of 'addnamecom'
+	And the following From data	
+		| Name     | Email      |
+		| Add Name | addnamecom |
 	When I call AddFromField
 	Then the account service result should be the account service return value
 	
