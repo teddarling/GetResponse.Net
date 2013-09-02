@@ -68,6 +68,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ConnectionTestingService.feature</DependentUpon>
     </Compile>
+    <Compile Include="Request.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Request.feature</DependentUpon>
+    </Compile>
     <Compile Include="ServiceClient.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -78,6 +83,7 @@
     <Compile Include="Steps\AccountServiceSteps.cs" />
     <Compile Include="Steps\ConnectionTestingServiceSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Steps\RequestSteps.cs" />
     <Compile Include="Steps\ServiceClientSteps.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -91,6 +97,10 @@
       <LastGenOutput>ConnectionTestingService.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="Request.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Request.feature.cs</LastGenOutput>
+    </None>
     <None Include="ServiceClient.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ServiceClient.feature.cs</LastGenOutput>

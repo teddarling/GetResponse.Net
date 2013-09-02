@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -56,6 +57,10 @@
     <ProjectReference Include="..\GetResponse.Net.Model\GetResponse.Net.Model.csproj">
       <Project>{931B33B3-A450-4C5A-BDBD-41C932817467}</Project>
       <Name>GetResponse.Net.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GetResponse.Net.Service\GetResponse.Net.Service.csproj">
+      <Project>{7184bd07-872e-4420-b106-1c7807f454be}</Project>
+      <Name>GetResponse.Net.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
