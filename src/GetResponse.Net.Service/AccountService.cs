@@ -14,12 +14,12 @@ namespace GetResponse.Net.Service
 
         public string GetFromFields()
         {
-            return Client.GetResult("{\"id\":\"1\",\"jsonrpc\":\"2.0\",\"method\":\"get_account_info\",\"params\":[\"" + Key + "\"]}");
+            return Client.GetResult("{\"id\":\"1\",\"jsonrpc\":\"2.0\",\"method\":\"get_account_from_fields\",\"params\":[\"" + Key + "\"]}");
         }
 
         public string GetFromField(string fromId)
         {
-            return Client.GetResult("{\"id\":\"1\",\"jsonrpc\":\"2.0\",\"method\":\"get_account_info\",\"params\":[\"" + Key + "\"]}");
+            return Client.GetResult("{\"id\":\"1\",\"jsonrpc\":\"2.0\",\"method\":\"get_account_from_field\",\"params\":[\"" + Key + "\"]}");
         }
     }
 }
