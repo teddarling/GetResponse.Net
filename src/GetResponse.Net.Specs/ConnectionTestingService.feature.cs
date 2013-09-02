@@ -110,13 +110,10 @@ this.ScenarioSetup(scenarioInfo);
 #line 16
  testRunner.And("a connection testing service status code 500", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 17
- testRunner.And("a connection testing return of  \'{\"jsonrpc\":\"2.0\",\"id\":\"1\",\"result\":{\"ping\":\"pong" +
-                    "\"}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 18
  testRunner.And("a connection testing service", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 19
+#line 18
  testRunner.When("I call ping", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 20
+#line 19
  testRunner.Then("the connection testing service should throw an error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -128,18 +125,18 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void InvalidAPIKey_()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Invalid API key.", ((string[])(null)));
-#line 22
+#line 21
 this.ScenarioSetup(scenarioInfo);
-#line 23
+#line 22
  testRunner.Given("an connection testing service API key of \'invalid API key\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 24
+#line 23
  testRunner.And("a connection testing return of  \'{\"jsonrpc\":\"2.0\",\"error\":{\"message\":\"Invalid par" +
                     "ams\",\"code\":-32602},\"id\":\"1\"}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 25
+#line 24
  testRunner.And("a connection testing service", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 26
+#line 25
  testRunner.When("I call ping", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 27
+#line 26
  testRunner.Then("the ping result should be \'{\"jsonrpc\":\"2.0\",\"error\":{\"message\":\"Invalid params\",\"" +
                     "code\":-32602},\"id\":\"1\"}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden

@@ -40,7 +40,11 @@ namespace GetResponse.Net.Specs.Steps
                 HttpClient = new HttpClient(handler)
             };
 
-            _service = new AccountService(_key, client);
+            _service = new AccountService
+            {
+                Key = _key,
+                Client = client
+            };
         }
 
         [Given(@"the following From data")]

@@ -14,7 +14,6 @@ Scenario: Valid ping request sent.
 Scenario: Server Error Response.
 	Given an connection testing service API key of 'valid API key'
 	And a connection testing service status code 500
-	And a connection testing return of  '{"jsonrpc":"2.0","id":"1","result":{"ping":"pong"}}'
 	And a connection testing service
 	When I call ping
 	Then the connection testing service should throw an error

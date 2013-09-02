@@ -51,7 +51,11 @@ namespace GetResponse.Net.Specs.Steps
                 HttpClient = new HttpClient(handler)
             };
 
-            _service = new ConnectionTestingService(_key, client);
+            _service = new ConnectionTestingService
+            {
+                Key = _key,
+                Client = client
+            };
         }
         
         [When(@"I call ping")]
