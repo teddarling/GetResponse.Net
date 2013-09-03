@@ -31,6 +31,8 @@ Scenario: Valid Request
 		| 1  | 2.0     | ping   |        |
 	When I send my request
 	Then the response should be the api response
+	And the response id should match the api response id
+	And the response jsonrpc should match the api jsonrpc
 	
 Scenario: Failure Status Code
 	Given an API return code, 500

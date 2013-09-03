@@ -138,5 +138,23 @@ namespace GetResponse.Net.Specs.Steps
             var actual = actualException.InnerException.GetType().ToString();
             Assert.Equal(innerException, actual);
         }
+
+        [Then(@"the response id should match the api response id")]
+        public void ThenTheResponseIdShouldMatchTheApiResponseId()
+        {
+            var expected = "1";
+            var actual = _actualResponse.ToResponse();
+
+            Assert.Equal(expected, actual.Id);
+        }
+
+        [Then(@"the response jsonrpc should match the api jsonrpc")]
+        public void ThenTheResponseJsonrpcShouldMatchTheApiJsonrpc()
+        {
+            var expected = "2.0";
+            var actual = _actualResponse.ToResponse();
+
+            Assert.Equal(expected, actual.Jsonrpc);
+        }
     }
 }

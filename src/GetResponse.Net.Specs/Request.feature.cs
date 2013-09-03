@@ -172,6 +172,10 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.When("I send my request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 33
  testRunner.Then("the response should be the api response", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 34
+ testRunner.And("the response id should match the api response id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 35
+ testRunner.And("the response jsonrpc should match the api jsonrpc", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -182,13 +186,13 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void FailureStatusCode()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Failure Status Code", ((string[])(null)));
-#line 35
-this.ScenarioSetup(scenarioInfo);
-#line 36
- testRunner.Given("an API return code, 500", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 37
- testRunner.And("the an api response of \'\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 38
+ testRunner.Given("an API return code, 500", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 39
+ testRunner.And("the an api response of \'\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 40
  testRunner.And("a request api key \'valid api key\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
@@ -201,11 +205,11 @@ this.ScenarioSetup(scenarioInfo);
                         "2.0",
                         "ping",
                         ""});
-#line 39
+#line 41
  testRunner.And("the following request data", ((string)(null)), table4, "And ");
-#line 42
+#line 44
  testRunner.When("I send my request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 43
+#line 45
  testRunner.Then("the response should throw an \'System.AggregateException\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -217,9 +221,9 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void NoHttpClientProvided()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("No HttpClient provided", ((string[])(null)));
-#line 45
+#line 47
 this.ScenarioSetup(scenarioInfo);
-#line 46
+#line 48
  testRunner.Given("a request api key \'valid api key\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
@@ -232,13 +236,13 @@ this.ScenarioSetup(scenarioInfo);
                         "2.0",
                         "ping",
                         ""});
-#line 47
+#line 49
  testRunner.And("the following request data", ((string)(null)), table5, "And ");
-#line 50
- testRunner.When("I send my request with no HttpClient", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 51
- testRunner.Then("the response should throw an \'System.AggregateException\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 52
+ testRunner.When("I send my request with no HttpClient", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 53
+ testRunner.Then("the response should throw an \'System.AggregateException\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 54
  testRunner.Then("the response should throw an inner exception \'System.NullReferenceException\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

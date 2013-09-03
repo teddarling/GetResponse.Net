@@ -32,4 +32,12 @@ namespace GetResponse.Net.Service
             });
         }
     }
+
+    public static class RequestExtension
+    {
+        public static Response ToResponse(this string response)
+        {
+            return JsonConvert.DeserializeObject<Response>(response);
+        }
+    }
 }
